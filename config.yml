@@ -1,0 +1,54 @@
+# ---------- Companies ----------
+# ats options: greenhouse | lever | ashby | smartrecruiters | workday | amazon | microsoft | google | tesla
+# Slugs drift. If a company reports 0 postings in the dashboard's Source health panel, open its careers page,
+# copy the board token from the URL, and fix it here. Each source is isolated: one failure never blocks the run.
+companies:
+  # Hyperscalers and big tech (custom career sites)
+  - {name: Amazon,           ats: amazon}
+  - {name: Microsoft,        ats: microsoft}
+  - {name: Google,           ats: google}
+  - {name: Tesla,            ats: tesla}
+  - {name: NVIDIA,           ats: workday,        slug: nvidia.wd5.myworkdayjobs.com/NVIDIAExternalCareerSite}
+  - {name: Oracle,           ats: workday,        slug: oracle.wd1.myworkdayjobs.com/en-US/Oracle_Careers}  # unverified
+  # Data centre operators and GPU clouds
+  - {name: Equinix,          ats: workday,        slug: equinix.wd1.myworkdayjobs.com/EQUINIX_Careers}
+  - {name: Digital Realty,   ats: workday,        slug: digitalrealty.wd5.myworkdayjobs.com/DLR}
+  - {name: CoreWeave,        ats: greenhouse,     slug: coreweave}
+  - {name: Lambda,           ats: greenhouse,     slug: lambda}
+  - {name: Crusoe,           ats: greenhouse,     slug: crusoe}
+  - {name: Vantage,          ats: lever,          slug: vantagedatacenters}
+  - {name: QTS,              ats: workday,        slug: qtsdatacenters.wd1.myworkdayjobs.com/QTS}  # unverified
+  - {name: Cloudflare,       ats: greenhouse,     slug: cloudflare}
+  # Manufacturing, hardware, logistics
+  - {name: Rivian,           ats: greenhouse,     slug: rivian}
+  - {name: Anduril,          ats: greenhouse,     slug: andurilindustries}
+  - {name: Flexport,         ats: greenhouse,     slug: flexport}
+  - {name: SpaceX,           ats: greenhouse,     slug: spacex}
+  - {name: Stripe,           ats: greenhouse,     slug: stripe}
+  - {name: Figma,            ats: greenhouse,     slug: figma}
+  - {name: Databricks,       ats: greenhouse,     slug: databricks}
+  - {name: Ramp,             ats: ashby,          slug: ramp}
+  - {name: Notion,           ats: ashby,          slug: notion}
+  - {name: Bosch,            ats: smartrecruiters, slug: BoschGroup}
+  - {name: Visa,             ats: smartrecruiters, slug: Visa}
+
+# ---------- Role lanes ----------
+# A title must match one `include` phrase, match none of `exclude`, and (if present) match one of `require_any`.
+lanes:
+  pgm:
+    label: Program manager
+    include: [program manager, technical program manager, tpm, program management, programme manager]
+    exclude: [intern, university, apprentice]
+  ie:
+    label: Industrial engineer
+    include: [industrial engineer, process engineer, manufacturing engineer, continuous improvement, lean engineer, operations engineer, industrial engineering]
+    exclude: [intern, co-op, chemical process, wastewater]
+  dc:
+    label: Data centre manager
+    include: [data center, data centre, critical facilities, critical environment, site operations, facility manager, facilities manager, colocation]
+    require_any: [manager, lead, director, head, supervisor]
+    exclude: [technician, intern, sales, account]
+
+search_terms: [program manager, technical program manager, industrial engineer, process engineer, data center manager, facilities manager]
+us_only: true
+days_to_keep_closed: 14
